@@ -1,0 +1,12 @@
+<launch>
+    <!-- This node will rectify fisheye images obtained from the Realsense T265 camera (realsense-ros) -->
+
+    <node name="reduce_freq_cam" pkg="topic_tools" type="drop" output="log" args="/camera/fisheye1/image_raw 5 6 /camera/fisheye1/image" />
+
+    <arg name="param_file_path" default="$(find vision_to_mavros)/cfg/t265.yaml"/>
+    <node pkg="vision_to_mavros" name="t265_fisheye_undistort" type="t265_fisheye_undistort_node" output="screen">
+    	<param name="input_topic_name" value="/camera/fisheye1/image" /> 
+        <param name="param_file_path" value="$(arg param_file_path)" /> 
+    </node>
+    
+</launch>
