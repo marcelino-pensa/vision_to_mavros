@@ -139,7 +139,7 @@ int main(int argc, char **argv) {
 
   // The output data include rectified images and their corresponding camera info
   image_transport::ImageTransport it(nh);
-  pub_img_rect_left  = it.advertise("/camera/fisheye1/rect/image",  1);
+  pub_img_rect_left  = it.advertise("/T265/fisheye1/rect/image",  1);
   // pub_img_rect_right = it.advertise("/camera/fisheye2/rect/image", 1);
 
   left_camera_info_output_pub = nh.advertise<sensor_msgs::CameraInfo>("/camera/fisheye1/rect/camera_info", 1);
